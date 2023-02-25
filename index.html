@@ -81,14 +81,14 @@
             <!-- ==============   EMI PANEL   =========== -->
             <div class="flex justify-start">
                 <div class="w-full">
-                    <h1 class="font-bold text-white xxs:text-4xl sm:text-5xl ">
+                    <h1 class="font-bold text-white xxxs:text-3xl xxs:text-4xl sm:text-5xl ">
                         <span class="uppercase">Emi</span> <span class="text-purple-600">Calculator</span>
                     </h1>
 
                     <!-- ===========       Loan Amount     ================ -->
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Loan Amount</h1>
-                        <button id="value_loan_amt" class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-2" contenteditable="true">
+                        <button id="value_loan_amt" class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-2" contenteditable="true">
                             20,00,000
                             </buttom>
                     </div>
@@ -99,7 +99,7 @@
                     <div class="flex items-center justify-between w-full mt-8">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Tenure</h1>
                         <button
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
                             <span id="value_tenure" contenteditable="true">25</span> &nbsp;years
                             </buttom>
                     </div>
@@ -111,7 +111,7 @@
                     <div class="flex items-center justify-between w-full mt-8">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Rate</h1>
                         <button
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
                             <span id="value_emi_rate" contenteditable="true">8.9</span>&nbsp;%
                             </buttom>
                     </div>
@@ -122,7 +122,7 @@
                     <div class="flex items-center justify-between w-full mt-8">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">EMI Amount</h1>
                         <button id="value_emi_amt"
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
                             16,647
                             </buttom>
                     </div>
@@ -131,11 +131,11 @@
                     <div class="flex items-center justify-between w-full mt-12">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Amount</h1>
                         <button id="value_interest_amt"
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
                             29,94,154
                         </buttom>
                     </div>
-                    <div class="blur-sm">
+                    <div>
                         <canvas id="emi_chart"></canvas>
                     </div>
 
@@ -145,14 +145,14 @@
             <!-- ==============   SIP PANEL   =========== -->
             <div class="flex justify-center">
                 <div class="w-full">
-                    <h1 class="font-bold text-white xxs:text-4xl sm:text-5xl">
+                    <h1 class="font-bold text-white xxxs:text-3xl xxs:text-4xl sm:text-5xl">
                         <span class="uppercase">Sip</span> <span class="text-purple-600">Calculator</span>
                     </h1>
                     <!-- ===========       Expected Returns     ================ -->
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Expected Returns</h1>
                         <button
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
                             <span id="value_sip_rate" contenteditable="true">12</span> &nbsp;%
                             </buttom>
                     </div>
@@ -162,7 +162,7 @@
                     <!-- ===========      Lumpsum Selector     ================ -->
                     <div
                         class="flex items-center w-full xxxs:justify-center sm:justify-between mt-14 xxs:gap-10 sm:gap-0 sm:flex-nowrap">
-                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">SIP</h1>
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl mr-10">SIP</h1>
                         <label class="relative inline-flex items-center cursor-pointer">
                             <!-- ===========      Lumpsum Checkbox     ================ -->
                             <input type="checkbox" id="checkbox_lumpsum" class="sr-only peer">
@@ -174,44 +174,44 @@
                                    dark:border-gray-600 peer-checked:bg-dark-600">
                             </div>
                         </label>
-                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Lumpsum</h1>
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl ml-10">Lumpsum</h1>
                     </div>
 
                     <!-- ===========      Sip Amount     ================ -->
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 id="text_sip_amt" class="font-bold text-white xxs:text-lg sm:text-2xl">Sip Amount</h1>
                         <button id="value_sip_amt" contenteditable="true"
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
                             1,500
                             </buttom>
                     </div>
 
-                    <div class="flex items-center justify-between w-full mt-14">
+                    <div id="div_outflow" class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Total Outflow</h1>
                         <button id="value_outflow_amt"
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
                             18,147
                             </buttom>
                     </div>
 
-                    <div class="flex items-center justify-between w-full mt-14">
+                    <div id="div_sip_return_amt" class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Total Value</h1>
                         <button id="value_sip_return_amt"
-                            class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
                             28,46,452
                             </buttom>
                     </div>
 
-                    <div class="blur-sm">
+                    <div>
 
                         <!-- chart -->
                         <canvas id="sip_chart"></canvas>
 
                         <!-- Returns -->
-                        <div class="flex items-center justify-between w-full mt-12">
+                        <div class="hidden flex items-center justify-between w-full mt-12">
                             <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Returns</h1>
-                            <button
-                                class="xxs:text-2xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3" >
+                            <button id="value_sip_return"
+                                class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3" >
                                 20,00,000
                             </buttom>
                         </div>
@@ -302,76 +302,71 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
+
+    const ctx2 = document.getElementById('emi_chart');
+    const chart_emi = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Principal',
+                'Interest'
+            ],
+            datasets: [{
+                label: 'EMI Chart',
+                display: true,
+                data: [300, 100],
+                backgroundColor: [
+                    // 'rgb(73, 54, 114)',
+                    '#a3a72f',
+                    '#8b2341'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            tooltips: {
+                mode: "dataset"
+            }
+            // data: {
+            //     active: false,
+            //     display: false
+            // }
+        }
+    });
+
 
     const ctx = document.getElementById('sip_chart');
-    new Chart(ctx, {
-        type: 'pie',
+    const chart_sip = new Chart(ctx, {
+        type: 'doughnut',
         data: {
             labels: [
-                'Red',
-                'Yellow'
+                'Principal',
+                'Returns'
             ],
             datasets: [{
-                label: 'My First Dataset',
+                label: 'SIP Chart',
                 display: false,
                 data: [300, 100],
                 backgroundColor: [
-                    'rgb(94, 94, 152)',
-                    'rgb(73, 54, 114)'
+                    // 'rgb(73, 54, 114)',
+                    '#a3a72f',
+                    '#0e4616'
                 ],
                 hoverOffset: 4
             }]
         },
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
             data: {
                 active: false,
                 display: false
             }
         }
     });
-    const ctx2 = document.getElementById('emi_chart');
-    new Chart(ctx2, {
-        type: 'pie',
-        data: {
-            labels: [
-                'Red',
-                'Yellow'
-            ],
-            datasets: [{
-                label: 'My First Dataset',
-                display: false,
-                data: [300, 100],
-                backgroundColor: [
-                    'rgb(94, 94, 152)',
-                    'rgb(73, 54, 114)'
-                ],
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            data: {
-                active: false,
-                display: false
-            }
-        }
-    });
-
-
-
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
+    chart_sip.data.datasets[0].data = [200,200];
+    chart_sip.update();
 
     $(document).on('input', '#slider_loan_amt', function() {
         $('#value_loan_amt').html( (parseInt($(this).val()).toLocaleString('en-IN')) );
@@ -421,12 +416,12 @@
         p = parseInt(p.replace(/,/g, ''));
         r = $('#value_emi_rate').text().trim() / (12*100);
         n = $('#value_tenure').text().trim() * 12;
-        console.log(p);
-        console.log(r);
-        console.log(n);
         emi = ((p * r * (1 + r) ** n) / ( ((1 + r) ** n) - 1));
         $('#value_emi_amt').html(parseInt(Math.round(emi * 100) / 100).toLocaleString('en-IN'));
-        $('#value_interest_amt').html(parseInt(Math.round((emi*n-p) * 100) / 100).toLocaleString('en-IN'));        
+        interest = emi*n-p;
+        $('#value_interest_amt').html(parseInt(Math.round(interest * 100) / 100).toLocaleString('en-IN'));
+        chart_emi.data.datasets[0].data = [p, interest];
+        chart_emi.update();
     }
 
     function sip_return_calculator(){
@@ -438,7 +433,14 @@
         emi = parseInt(emi.replace(/,/g, ''));
         value_return = sip * (((1 + r) ** n)-1) * (1+r)/r;
         $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString('en-IN'));
-        $('#value_outflow_amt').html(parseInt(Math.round((sip + emi) * 100) / 100).toLocaleString('en-IN'));   
+        $('#value_outflow_amt').html(parseInt(Math.round((sip + emi) * 100) / 100).toLocaleString('en-IN'));
+        p = sip * n ;
+        value_sip_return = value_return-p;
+        p = parseInt(Math.round(p * 100) / 100);
+        value_sip_return = parseInt(Math.round(value_sip_return * 100) / 100);
+        $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString('en-IN'));
+        chart_sip.data.datasets[0].data = [p, value_sip_return];
+        chart_sip.update();
     }
 
     function sip_calculator(){
@@ -453,6 +455,13 @@
         sip_amt = value_return / sip_coefficient ;
         $('#value_sip_amt').html(parseInt(Math.round(sip_amt * 100) / 100).toLocaleString('en-IN'));
         $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 100) / 100).toLocaleString('en-IN'));
+        p = sip_amt * n ;
+        value_sip_return = value_return-p;
+        p = parseInt(Math.round(p * 100) / 100);
+        value_sip_return = parseInt(Math.round(value_sip_return * 100) / 100);
+        $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString('en-IN'));
+        chart_sip.data.datasets[0].data = [p, value_sip_return];
+        chart_sip.update();
     }
 
     function lumpsum_return_calculator(){
@@ -462,6 +471,12 @@
         n = $('#value_tenure').text().trim();
         value_return = p * ((1 + r)**n);
         $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString('en-IN'));
+        // update chart
+        value_sip_return = value_return-p;
+        p = parseInt(Math.round(p * 100) / 100);
+        value_sip_return = parseInt(Math.round(value_sip_return * 100) / 100);
+        chart_sip.data.datasets[0].data = [p, value_sip_return];
+        chart_sip.update();
     }
 
     function lumpsum_calculator(){
@@ -470,12 +485,14 @@
         value_return =  parseInt(value_interest_amt.replace(/,/g, ''));
         r = $('#value_sip_rate').text().trim() / 100;
         n = $('#value_tenure').text().trim();
-        // emi = $('#value_emi_amt').text().trim();
-        // emi = parseInt(emi.replace(/,/g, ''));
         lumpsum_coefficient = (1 + r)**n
         lumpsum_amt = value_return / lumpsum_coefficient ;
         $('#value_sip_amt').html(parseInt(Math.round(lumpsum_amt * 100) / 100).toLocaleString('en-IN'));
-        // $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 100) / 100).toLocaleString('en-IN'));
+        // update chart
+        p = lumpsum_amt ;
+        value_sip_return = value_return-p;
+        chart_sip.data.datasets[0].data = [p, value_sip_return];
+        chart_sip.update();
     }
 
 
@@ -483,9 +500,11 @@
         if ( $('#checkbox_lumpsum').is(":checked") == true ) {
             $('#text_sip_amt').html("Lumpsum");
             lumpsum_calculator();
+            $('#div_outflow').hide();
         } else {
             $('#text_sip_amt').html("Sip Amount");
             sip_calculator();
+            $('#div_outflow').show();
         }
     }
 
@@ -518,6 +537,11 @@
     });
 
     $(document).on('change', '#checkbox_lumpsum', function() {
+        sip_lumpsum_calculator();
+    });
+
+    $( document ).ready(function() {
+        emi_calculator();
         sip_lumpsum_calculator();
     });
 
