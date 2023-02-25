@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planner x | Site</title>
+    <title>FinPlanner: SIP and EMI Calculator</title>
+    <meta name="description" content="This calculator helps plan SIP/Lumpsum investment to eliminate/reduce interest burden of home loan">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -55,22 +56,23 @@
     <div class="wrapper">
         <!--  HEADER STARTS HERE -->
         <header class="container mx-auto xxxs:px-3 xxs:px-5 lg:px-12 xl:px-0 md:px-10 sm:px-5">
-            <div class="flex items-center gap-2 mt-5 ">
-                <img class="logo" src="assets/img/logo.svg" alt="">
+            <div class="flex items-center gap-2 mt-8 ">
+                <img class="animate-[spin_2s_linear_infinite] logo" src="assets/img/logo.svg" alt="">
                 <p class="text-2xl font-bold text-white">FinPlanner.app</p>
 
             </div>
         </header>
 
         <!-- BANNER STARTS HERE -->
-        <section class="container mx-auto mt-40 banner sm:px-5 lg:px-12 xl:px-0 md:px-10">
+        <section class="container mx-auto mt-44 banner sm:px-5 lg:px-12 xl:px-0 md:px-10">
             <h1 class="font-bold text-white xxxs:text-4xl xxs:text-5xl xxxs:text-center sm:text-start sm:text-7xl">
                 <span class="text-purple-600">Make</span> Home Loan <br class="sm:hidden lg:block"> Interest free <span
                     class="text-purple-600">with</span> SIP </h1>
             <div class="xxxs:text-center sm:text-start">
-
-                <button class="px-10 text-xl font-bold text-gray-900 capitalize button__gradient mt-32">Learn
-                    more</button>
+                <a href="#panel_emi">
+                    <button class="px-10 text-xl font-bold text-gray-900 capitalize button__gradient mt-32">Learn
+                        more</button>
+                </a>
             </div>
         </section>
     </div>
@@ -79,7 +81,7 @@
     <section class="container mx-auto xxs:px-5 xxxs:px-3 xl:px-15 lg:px-12 sm:px-5 md:px-10 mt-40">
         <div class="grid grid-rows-1 gap-52 lg:grid-flow-col md:grid-flow-row">
             <!-- ==============   EMI PANEL   =========== -->
-            <div class="flex justify-start">
+            <div class="flex justify-start" id="panel_emi">
                 <div class="w-full">
                     <h1 class="font-bold text-white xxxs:text-3xl xxs:text-4xl sm:text-5xl ">
                         <span class="uppercase">Emi</span> <span class="text-purple-600">Calculator</span>
@@ -88,18 +90,18 @@
                     <!-- ===========       Loan Amount     ================ -->
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Loan Amount</h1>
-                        <button id="value_loan_amt" class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-2" contenteditable="true">
-                            20,00,000
+                        <button id="value_loan_amt" class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-3" contenteditable="true">
+                            25,00,000
                             </buttom>
                     </div>
-                    <input id="slider_loan_amt" type="range" value="2000000" min="0" max="10000000" step="50000"
+                    <input id="slider_loan_amt" type="range" value="2500000" min="0" max="20000000" step="50000"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
 
                     <!-- ===========       Tenure        ================ -->
                     <div class="flex items-center justify-between w-full mt-8">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Tenure</h1>
                         <button
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             <span id="value_tenure" contenteditable="true">25</span> &nbsp;years
                             </buttom>
                     </div>
@@ -111,30 +113,33 @@
                     <div class="flex items-center justify-between w-full mt-8">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Rate</h1>
                         <button
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             <span id="value_emi_rate" contenteditable="true">8.9</span>&nbsp;%
                             </buttom>
                     </div>
                     <input id="slider_emi_rate" type="range" value="8.9" min="0.00" max="15.00" step=".10"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
 
-                    <!-- ===========       EMI Amount     ================ -->
-                    <div class="flex items-center justify-between w-full mt-8">
-                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">EMI Amount</h1>
-                        <button id="value_emi_amt"
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
-                            16,647
+                    <div id="section_emi_var" class="blur-sm">
+                        <!-- ===========       EMI Amount     ================ -->
+                        <div class="flex items-center justify-between w-full mt-8">
+                            <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">EMI Amount</h1>
+                            <button id="value_emi_amt"
+                                class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
+                                16,647
+                                </buttom>
+                        </div>
+
+                        <!-- ===========       Interest Amount     ================ -->
+                        <div class="flex items-center justify-between w-full mt-12">
+                            <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Amount</h1>
+                            <button id="value_interest_amt"
+                                class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
+                                29,94,154
                             </buttom>
+                        </div>
                     </div>
 
-                    <!-- ===========       Interest Amount     ================ -->
-                    <div class="flex items-center justify-between w-full mt-12">
-                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Amount</h1>
-                        <button id="value_interest_amt"
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
-                            29,94,154
-                        </buttom>
-                    </div>
                     <div>
                         <canvas id="emi_chart"></canvas>
                     </div>
@@ -143,7 +148,7 @@
             </div>
 
             <!-- ==============   SIP PANEL   =========== -->
-            <div class="flex justify-center">
+            <div id="panel_sip" class="flex justify-center blur-sm">
                 <div class="w-full">
                     <h1 class="font-bold text-white xxxs:text-3xl xxs:text-4xl sm:text-5xl">
                         <span class="uppercase">Sip</span> <span class="text-purple-600">Calculator</span>
@@ -152,7 +157,7 @@
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Expected Returns</h1>
                         <button
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             <span id="value_sip_rate" contenteditable="true">12</span> &nbsp;%
                             </buttom>
                     </div>
@@ -181,7 +186,7 @@
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 id="text_sip_amt" class="font-bold text-white xxs:text-lg sm:text-2xl">Sip Amount</h1>
                         <button id="value_sip_amt" contenteditable="true"
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             1,500
                             </buttom>
                     </div>
@@ -189,7 +194,7 @@
                     <div id="div_outflow" class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Total Outflow</h1>
                         <button id="value_outflow_amt"
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             18,147
                             </buttom>
                     </div>
@@ -197,7 +202,7 @@
                     <div id="div_sip_return_amt" class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Total Value</h1>
                         <button id="value_sip_return_amt"
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             28,46,452
                             </buttom>
                     </div>
@@ -211,7 +216,7 @@
                         <div class="hidden flex items-center justify-between w-full mt-12">
                             <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Returns</h1>
                             <button id="value_sip_return"
-                                class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3" >
+                                class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3" >
                                 20,00,000
                             </buttom>
                         </div>
@@ -319,8 +324,7 @@
                 display: true,
                 data: [300, 100],
                 backgroundColor: [
-                    // 'rgb(73, 54, 114)',
-                    '#a3a72f',
+                    'rgb(73, 54, 114)',
                     '#8b2341'
                 ],
                 hoverOffset: 4
@@ -351,8 +355,8 @@
                 display: false,
                 data: [300, 100],
                 backgroundColor: [
-                    // 'rgb(73, 54, 114)',
-                    '#a3a72f',
+                    'rgb(73, 54, 114)',
+                    // '#a3a72f',
                     '#0e4616'
                 ],
                 hoverOffset: 4
@@ -422,6 +426,7 @@
         $('#value_interest_amt').html(parseInt(Math.round(interest * 100) / 100).toLocaleString('en-IN'));
         chart_emi.data.datasets[0].data = [p, interest];
         chart_emi.update();
+        $('#section_emi_var').removeClass("blur-sm");
     }
 
     function sip_return_calculator(){
@@ -541,9 +546,19 @@
     });
 
     $( document ).ready(function() {
-        emi_calculator();
+        // emi_calculator();
         sip_lumpsum_calculator();
     });
+
+    $(document).on('mouseover', '#panel_sip', function(){
+        $(this).removeClass("blur-sm");
+    });
+
+    // $(document).on('mouseover', '#section_emi_var', function(){
+    //     $('#section_emi_var').removeClass("blur-sm");
+    // });
+
+    
 
 </script>
 </html>
