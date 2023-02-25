@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #101728;
+}
+.logo{
+    width: 50px;
+}
+.button__gradient{
+    background: linear-gradient(90deg, rgba(152,64,248,1) 35%, rgba(250,60,103,1) 100%);
+    padding: 20px;
+    border-radius: 50px;
+}
+.wrapper{
+    background-image: url(../img/house.svg);
+    background-position: right 20% center;
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    background-origin: border-box;
+    
+}
+#emi_chart{
+    width: 300px !important;
+    margin: auto !important;
+    height: 300px !important;
+    margin-top: 70px !important;
+}
+#sip_chart{
+    width: 300px !important;
+    margin: auto !important;
+    height: 300px !important;
+    margin-top: 70px !important;
+}
+.premium__div{
+    width: max-content;
+    padding: 12px 30px;
+    display: flex;
+    margin: auto;
+    margin-top: 30px !important;
+    align-items: center;
+    border-radius: 0px 80px 0px 80px;
+}
+.abc__website{
+    background-image: url(../img/rounded.png);
+    background-size: 100% 100%;
+    position: relative;
+}
+.img-mb-outer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mb-img{
+    width: 70%;
+}
+

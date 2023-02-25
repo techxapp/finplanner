@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner x | Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'xxxs': '320px',
+                    'xxs': '375px',
+                    'xs': '425px',
+                    'sm': '576px',
+                    // => @media (min-width: 576px) { ... }
+
+                    'md': '768px',
+                    // => @media (min-width: 960px) { ... }
+
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                    // => @media (min-width: 1440px) { ... }
+                },
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <!--  HEADER STARTS HERE -->
+        <header class="container mx-auto xxxs:px-3 xxs:px-5 lg:px-12 xl:px-0 md:px-10 sm:px-5">
+            <div class="flex items-center gap-2 mt-5 ">
+                <img class="logo" src="assets/img/logo.svg" alt="">
+                <p class="text-2xl font-bold text-white">PlannerX</p>
+
+            </div>
+        </header>
+
+        <!-- BANNER STARTS HERE -->
+        <section class="container mx-auto mt-40 banner sm:px-5 lg:px-12 xl:px-0 md:px-10">
+            <h1 class="font-bold text-white xxxs:text-4xl xxs:text-5xl xxxs:text-center sm:text-start sm:text-7xl">
+                <span class="text-purple-600">Make</span> Home Loan <br class="sm:hidden lg:block"> Interest free <span
+                    class="text-purple-600">with</span> SIP </h1>
+            <div class="xxxs:text-center sm:text-start">
+
+                <button class="px-10 text-xl font-bold text-gray-900 capitalize button__gradient mt-32">Learn
+                    more</button>
+            </div>
+        </section>
+    </div>
+
+    
+    <section class="container mx-auto xxs:px-5 xxxs:px-3 xl:px-15 lg:px-12 sm:px-5 md:px-10 mt-40">
+        <div class="grid grid-rows-1 gap-52 lg:grid-flow-col md:grid-flow-row">
+            <!-- ==============   EMI PANEL   =========== -->
+            <div class="flex justify-start">
+                <div class="w-full">
+                    <h1 class="font-bold text-white xxs:text-4xl sm:text-5xl ">
+                        <span class="uppercase">Emi</span> <span class="text-purple-600">Calculator</span>
+                    </h1>
+
+                    <!-- ===========       Loan Amount     ================ -->
+                    <div class="flex items-center justify-between w-full mt-14">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Loan Amount</h1>
+                        <button id="value_loan_amt" class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-2" contenteditable="true">
+                            20,00,000
+                            </buttom>
+                    </div>
+                    <input id="slider_loan_amt" type="range" value="2000000" min="0" max="10000000" step="50000"
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
+
+                    <!-- ===========       Tenure        ================ -->
+                    <div class="flex items-center justify-between w-full mt-8">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Tenure</h1>
+                        <button
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
+                            <span id="value_tenure" contenteditable="true">25</span> &nbsp;years
+                            </buttom>
+                    </div>
+
+                    <!-- ===========       Interest Rate     ================ -->
+                    <input id="slider_tenure" type="range" value="25" min="0" max="30" step="1"
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
+
+                    <div class="flex items-center justify-between w-full mt-8">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Rate</h1>
+                        <button
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-2">
+                            <span id="value_emi_rate" contenteditable="true">8.9</span>&nbsp;%
+                            </buttom>
+                    </div>
+                    <input id="slider_emi_rate" type="range" value="8.9" min="0.00" max="15.00" step=".10"
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
+
+                    <!-- ===========       EMI Amount     ================ -->
+                    <div class="flex items-center justify-between w-full mt-8">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">EMI Amount</h1>
+                        <button id="value_emi_amt"
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            16,647
+                            </buttom>
+                    </div>
+
+                    <!-- ===========       Interest Amount     ================ -->
+                    <div class="flex items-center justify-between w-full mt-12">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Amount</h1>
+                        <button id="value_interest_amt"
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            29,94,154
+                        </buttom>
+                    </div>
+                    <div class="blur-sm">
+                        <canvas id="emi_chart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ==============   SIP PANEL   =========== -->
+            <div class="flex justify-center">
+                <div class="w-full">
+                    <h1 class="font-bold text-white xxs:text-4xl sm:text-5xl">
+                        <span class="uppercase">Sip</span> <span class="text-purple-600">Calculator</span>
+                    </h1>
+                    <!-- ===========       Expected Returns     ================ -->
+                    <div class="flex items-center justify-between w-full mt-14">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Expected Returns</h1>
+                        <button
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            <span id="value_sip_rate" contenteditable="true">12</span> &nbsp;%
+                            </buttom>
+                    </div>
+                    <input id="slider_sip_rate" type="range" value="12" step="1.0" max="30"
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
+
+                    <!-- ===========      Lumpsum Selector     ================ -->
+                    <div
+                        class="flex items-center w-full xxxs:justify-center sm:justify-between mt-14 xxs:gap-10 sm:gap-0 sm:flex-nowrap">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">SIP</h1>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <!-- ===========      Lumpsum Checkbox     ================ -->
+                            <input type="checkbox" id="checkbox_lumpsum" class="sr-only peer">
+                            <div
+                                class="w-16 h-8 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300
+                                 dark:peer-focus:ring-black-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full
+                                  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                                  after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all
+                                   dark:border-gray-600 peer-checked:bg-dark-600">
+                            </div>
+                        </label>
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Lumpsum</h1>
+                    </div>
+
+                    <!-- ===========      Sip Amount     ================ -->
+                    <div class="flex items-center justify-between w-full mt-14">
+                        <h1 id="text_sip_amt" class="font-bold text-white xxs:text-lg sm:text-2xl">Sip Amount</h1>
+                        <button id="value_sip_amt" contenteditable="true"
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            1,500
+                            </buttom>
+                    </div>
+
+                    <div class="flex items-center justify-between w-full mt-14">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Total Outflow</h1>
+                        <button id="value_outflow_amt"
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            18,147
+                            </buttom>
+                    </div>
+
+                    <div class="flex items-center justify-between w-full mt-14">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Total Value</h1>
+                        <button id="value_sip_return_amt"
+                            class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3">
+                            28,46,452
+                            </buttom>
+                    </div>
+
+                    <div class="blur-sm">
+
+                        <!-- chart -->
+                        <canvas id="sip_chart"></canvas>
+
+                        <!-- Returns -->
+                        <div class="flex items-center justify-between w-full mt-12">
+                            <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Returns</h1>
+                            <button
+                                class="xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-2 sm:py-3" >
+                                20,00,000
+                            </buttom>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming features -->
+    <section class="container mx-auto xl:px-0 xxs:px-5 xxxs:px-3 lg:px-12 sm:px-5 md:px-10 mt-36 blur-lg">
+        <div class="grid items-end grid-rows-1 md:gap-30 xl:gap-0 2xl:gap-40 xl:grid-flow-col lg:grid-flow-row">
+            <div>
+                <h1
+                    class="font-bold text-purple-600 xxs:text-3xl xxxs:text-center sm:text-6xl sm:text-center md:text-center lg:text-center xl:text-start">
+                    Lorem ipsum
+                    Lorem ?</h1>
+
+                <div class="font-bold text-white bg-purple-600 xxs:text-3xl sm:text-5xl premium__div">
+                    <span> Try Premium</span>
+                </div>
+                <p class="text-3xl font-bold text-white mt-28">
+                    Features
+                </p>
+                <ul class="text-3xl font-bold text-white list-disc">
+                    <li class="mt-4 ml-14">lorem ipsum</li>
+                    <li class="mt-2 ml-14">lorem ipsum</li>
+                    <li class="mt-2 ml-14">lorem ipsum</li>
+                    <li class="mt-2 ml-14">lorem ipsum</li>
+                    <li class="mt-2 ml-14">lorem ipsum</li>
+
+                </ul>
+            </div>
+            <div class="img-mb-outer xxxs:mt-10">
+                <img src="assets/img/mobile.jpg" class="mb-img rounded-3xl" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lead Geneeration -->
+    <section class="container mx-auto xxs:px-5 xxxs:px-3 sm:px-5 md:px-10 xl:px-0 lg:px-12 mt-36">
+        <p class="font-bold text-white xxxs:text-center sm:text-center lg:text-start xxxs:text-4xl sm:text-5xl">
+            Coming Soon ...
+        </p>
+        <div
+            class="flex items-center gap-40 xxxs:flex-wrap sm:justify-center lg:justify-start xxxs:gap-10 xxs:gap-10 sm:gap-20 lg:gap-40 lg:flex-nowrap xxxs:mt-5 xxs:mt-14 sm:mt-36 xxxs:justify-center">
+            <div class="py-4 abc__website xxxs:text-2xl sm:text-2xl xxxs:px-5 xxs:px-14 sm:px-28">
+                abc@website.com
+            </div>
+            <div class="text-white xxs:text-2xl sm:text-3xl">
+                Drop a mail and get notified !
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="container mx-auto xxs:px-5 xxxs:px-3 xl:px-0 md:px-10 lg:px-12 mt-36 mb-14">
+
+        <div class="flex items-start xxxs:flex-wrap lg:flex-nowrap xxxs:gap-10 md:gap-20 lg:gap-40 mt-36">
+            <div
+                class="flex items-center gap-4 lg:w-1/2 xxxs:w-full md:w-full lg:justify-start xxxs:justify-center md:justify-center">
+                <img src="assets/img/logo.svg" class="logo" alt="logo">
+                <p class="text-3xl font-bold text-white">PlannerX</p>
+
+            </div>
+            <div class="xxxs:w-full md:w-full lg:w-max">
+                <p class="text-5xl font-bold text-purple-600 xxxs:text-center md:text-center lg:text-start">
+                    Connect
+                </p>
+                <p
+                    class="mt-10 font-normal text-white xxxs:text-2xl xxs:text-3xl xxxs:text-center md:text-center lg:text-start blur-lg">
+                    hello@reallygreatsite.com
+                </p>
+                <div class="flex gap-10 mt-10 xxxs:justify-center md:justify-center lg:justify-start">
+                    <i class="text-4xl text-white fa-brands fa-linkedin "></i>
+                    <i class="text-4xl text-white fa-brands fa-instagram "></i>
+                    <i class="text-4xl text-white fa-brands fa-facebook-f "></i>
+                    <i class="text-4xl text-white fa-brands fa-twitter "></i>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    const ctx = document.getElementById('sip_chart');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Red',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                display: false,
+                data: [300, 100],
+                backgroundColor: [
+                    'rgb(94, 94, 152)',
+                    'rgb(73, 54, 114)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            data: {
+                active: false,
+                display: false
+            }
+        }
+    });
+    const ctx2 = document.getElementById('emi_chart');
+    new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Red',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                display: false,
+                data: [300, 100],
+                backgroundColor: [
+                    'rgb(94, 94, 152)',
+                    'rgb(73, 54, 114)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            data: {
+                active: false,
+                display: false
+            }
+        }
+    });
+
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+    $(document).on('input', '#slider_loan_amt', function() {
+        $('#value_loan_amt').html( (parseInt($(this).val()).toLocaleString('en-IN')) );
+        emi_calculator();
+        sip_lumpsum_calculator();
+    });
+
+    $(document).on('input', '#value_loan_amt', function() {
+        loan_amt = parseInt($(this).text().replace(/,/g, ''));
+        $('#slider_loan_amt').val(loan_amt);
+        emi_calculator();
+        sip_lumpsum_calculator();
+    });
+    $(document).on('focusout', '#value_loan_amt', function() {
+        loan_amt = parseInt($(this).text().replace(/,/g, ''));
+        $('#value_loan_amt').html(loan_amt.toLocaleString('en-IN'));
+    });
+
+    $(document).on('input', '#slider_tenure', function() {
+        $('#value_tenure').html( $(this).val() );
+        emi_calculator();
+        sip_lumpsum_calculator();
+    });
+    $(document).on('input', '#value_tenure', function() {
+        n = $('#value_tenure').text().trim();
+        console.log(n);
+        $('#slider_tenure').val(n);
+        emi_calculator();
+        sip_lumpsum_calculator();
+    });
+
+    $(document).on('input', '#slider_emi_rate', function() {
+        $('#value_emi_rate').html( $(this).val());
+        emi_calculator();
+        sip_lumpsum_calculator();
+    });
+    $(document).on('input', '#value_emi_rate', function() {
+        r = $(this).text().trim();
+        $('#slider_emi_rate').val(r);
+        emi_calculator();
+        sip_lumpsum_calculator();
+    });
+
+
+    function emi_calculator(){
+        p = $('#value_loan_amt').text().trim();
+        p = parseInt(p.replace(/,/g, ''));
+        r = $('#value_emi_rate').text().trim() / (12*100);
+        n = $('#value_tenure').text().trim() * 12;
+        console.log(p);
+        console.log(r);
+        console.log(n);
+        emi = ((p * r * (1 + r) ** n) / ( ((1 + r) ** n) - 1));
+        $('#value_emi_amt').html(parseInt(Math.round(emi * 100) / 100).toLocaleString('en-IN'));
+        $('#value_interest_amt').html(parseInt(Math.round((emi*n-p) * 100) / 100).toLocaleString('en-IN'));        
+    }
+
+    function sip_return_calculator(){
+        sip = $('#value_sip_amt').text().trim();
+        sip = parseInt(sip.replace(/,/g, ''));
+        r = $('#value_sip_rate').text().trim() / (12*100);
+        n = $('#value_tenure').text().trim() * 12;
+        emi = $('#value_emi_amt').text().trim();
+        emi = parseInt(emi.replace(/,/g, ''));
+        value_return = sip * (((1 + r) ** n)-1) * (1+r)/r;
+        $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString('en-IN'));
+        $('#value_outflow_amt').html(parseInt(Math.round((sip + emi) * 100) / 100).toLocaleString('en-IN'));   
+    }
+
+    function sip_calculator(){
+        value_interest_amt = $('#value_interest_amt').text().trim()
+        $('#value_sip_return_amt').html(value_interest_amt);
+        value_return =  parseInt(value_interest_amt.replace(/,/g, ''));
+        r = $('#value_sip_rate').text().trim() / (12*100);
+        n = $('#value_tenure').text().trim() * 12;
+        emi = $('#value_emi_amt').text().trim();
+        emi = parseInt(emi.replace(/,/g, ''));
+        sip_coefficient = (((1 + r) ** n)-1) * (1+r)/r
+        sip_amt = value_return / sip_coefficient ;
+        $('#value_sip_amt').html(parseInt(Math.round(sip_amt * 100) / 100).toLocaleString('en-IN'));
+        $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 100) / 100).toLocaleString('en-IN'));
+    }
+
+    function lumpsum_return_calculator(){
+        p = $('#value_sip_amt').text().trim();
+        p = parseInt(p.replace(/,/g, ''));
+        r = $('#value_sip_rate').text().trim() / 100;
+        n = $('#value_tenure').text().trim();
+        value_return = p * ((1 + r)**n);
+        $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString('en-IN'));
+    }
+
+    function lumpsum_calculator(){
+        value_interest_amt = $('#value_interest_amt').text().trim()
+        $('#value_sip_return_amt').html(value_interest_amt);
+        value_return =  parseInt(value_interest_amt.replace(/,/g, ''));
+        r = $('#value_sip_rate').text().trim() / 100;
+        n = $('#value_tenure').text().trim();
+        // emi = $('#value_emi_amt').text().trim();
+        // emi = parseInt(emi.replace(/,/g, ''));
+        lumpsum_coefficient = (1 + r)**n
+        lumpsum_amt = value_return / lumpsum_coefficient ;
+        $('#value_sip_amt').html(parseInt(Math.round(lumpsum_amt * 100) / 100).toLocaleString('en-IN'));
+        // $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 100) / 100).toLocaleString('en-IN'));
+    }
+
+
+    function sip_lumpsum_calculator(){
+        if ( $('#checkbox_lumpsum').is(":checked") == true ) {
+            $('#text_sip_amt').html("Lumpsum");
+            lumpsum_calculator();
+        } else {
+            $('#text_sip_amt').html("Sip Amount");
+            sip_calculator();
+        }
+    }
+
+
+    function sip_lumpsum_return_calculator(){
+        if ( $('#checkbox_lumpsum').is(":checked") == true ) {
+            $('#text_sip_amt').html("Lumpsum");
+            lumpsum_return_calculator();
+        } else {
+            $('#text_sip_amt').html("Sip Amount");
+            sip_return_calculator();
+        }
+    }
+
+    $(document).on('input', '#slider_sip_rate', function() {
+        $('#value_sip_rate').html( $(this).val());
+        sip_lumpsum_calculator();
+    });
+    $(document).on('input', '#value_sip_rate', function() {
+        $('#slider_sip_rate').val( $(this).text());
+        sip_lumpsum_calculator();
+    });
+
+    $(document).on('input', '#value_sip_amt', function() {
+        sip_lumpsum_return_calculator();
+    });
+    $(document).on('focusout', '#value_sip_amt', function() {
+        sip_amt = parseInt($(this).text().replace(/,/g, ''));
+        $('#value_sip_amt').html(sip_amt.toLocaleString('en-IN'));
+    });
+
+    $(document).on('change', '#checkbox_lumpsum', function() {
+        sip_lumpsum_calculator();
+    });
+
+</script>
+</html>
