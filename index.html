@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinPlanner: SIP and EMI Calculator</title>
+    <title>SIP and EMI Calculator | FinPlanner</title>
     <meta name="description" content="This calculator helps plan SIP/Lumpsum investment to eliminate/reduce interest burden of home loan">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -66,12 +66,14 @@
         <!-- BANNER STARTS HERE -->
         <section class="container mx-auto mt-44 banner sm:px-5 lg:px-12 xl:px-0 md:px-10">
             <h1 class="font-bold text-white xxxs:text-4xl xxs:text-5xl xxxs:text-center sm:text-start sm:text-7xl">
+                <!-- Make Home Loan <br/> Interest free with SIP -->
                 <span class="text-purple-600">Make</span> Home Loan <br class="sm:hidden lg:block"> Interest free <span
                     class="text-purple-600">with</span> SIP </h1>
             <div class="xxxs:text-center sm:text-start">
                 <a href="#panel_emi">
-                    <button class="px-10 text-xl font-bold text-gray-900 capitalize button__gradient mt-32">Learn
-                        more</button>
+                    <button class="px-10 text-xl font-bold text-gray-900 capitalize button__gradient mt-32">
+                        Get Started
+                    </button>
                 </a>
             </div>
         </section>
@@ -84,15 +86,15 @@
             <div class="flex justify-start" id="panel_emi">
                 <div class="w-full">
                     <h1 class="font-bold text-white xxxs:text-3xl xxs:text-4xl sm:text-5xl ">
-                        <span class="uppercase">Emi</span> <span class="text-purple-600">Calculator</span>
+                        EMI <span class="text-purple-600">Calculator</span>
                     </h1>
 
                     <!-- ===========       Loan Amount     ================ -->
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Loan Amount</h1>
-                        <button id="value_loan_amt" class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-3" contenteditable="true">
+                        <button id="value_loan_amt" class="editable xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-3" contenteditable="true">
                             25,00,000
-                            </buttom>
+                            </button>
                     </div>
                     <input id="slider_loan_amt" type="range" value="2500000" min="0" max="20000000" step="50000"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
@@ -103,7 +105,7 @@
                         <button
                             class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             <span id="value_tenure" contenteditable="true">25</span> &nbsp;years
-                            </buttom>
+                            </button>
                     </div>
 
                     <!-- ===========       Interest Rate     ================ -->
@@ -115,19 +117,19 @@
                         <button
                             class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             <span id="value_emi_rate" contenteditable="true">8.9</span>&nbsp;%
-                            </buttom>
+                            </button>
                     </div>
                     <input id="slider_emi_rate" type="range" value="8.9" min="0.00" max="15.00" step=".10"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
 
-                    <div id="section_emi_var" class="blur-sm">
+                    <div id="section_emi_var" class="hover-unblur">
                         <!-- ===========       EMI Amount     ================ -->
                         <div class="flex items-center justify-between w-full mt-8">
                             <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">EMI Amount</h1>
                             <button id="value_emi_amt"
                                 class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                                 16,647
-                                </buttom>
+                                </button>
                         </div>
 
                         <!-- ===========       Interest Amount     ================ -->
@@ -136,7 +138,7 @@
                             <button id="value_interest_amt"
                                 class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                                 29,94,154
-                            </buttom>
+                            </button>
                         </div>
                     </div>
 
@@ -148,10 +150,10 @@
             </div>
 
             <!-- ==============   SIP PANEL   =========== -->
-            <div id="panel_sip" class="flex justify-center blur-sm">
+            <div id="panel_sip" class="flex justify-center hover-unblur blur-sm">
                 <div class="w-full">
                     <h1 class="font-bold text-white xxxs:text-3xl xxs:text-4xl sm:text-5xl">
-                        <span class="uppercase">Sip</span> <span class="text-purple-600">Calculator</span>
+                        SIP <span class="text-purple-600">Calculator</span>
                     </h1>
                     <!-- ===========       Expected Returns     ================ -->
                     <div class="flex items-center justify-between w-full mt-14">
@@ -159,7 +161,7 @@
                         <button
                             class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             <span id="value_sip_rate" contenteditable="true">12</span> &nbsp;%
-                            </buttom>
+                            </button>
                     </div>
                     <input id="slider_sip_rate" type="range" value="12" step="1.0" max="30"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
@@ -186,9 +188,9 @@
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 id="text_sip_amt" class="font-bold text-white xxs:text-lg sm:text-2xl">Sip Amount</h1>
                         <button id="value_sip_amt" contenteditable="true"
-                            class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
+                            class="editable xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             1,500
-                            </buttom>
+                            </button>
                     </div>
 
                     <div id="div_outflow" class="flex items-center justify-between w-full mt-14">
@@ -196,7 +198,7 @@
                         <button id="value_outflow_amt"
                             class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             18,147
-                            </buttom>
+                            </button>
                     </div>
 
                     <div id="div_sip_return_amt" class="flex items-center justify-between w-full mt-14">
@@ -204,7 +206,7 @@
                         <button id="value_sip_return_amt"
                             class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3">
                             28,46,452
-                            </buttom>
+                            </button>
                     </div>
 
                     <div>
@@ -218,7 +220,7 @@
                             <button id="value_sip_return"
                                 class="xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 rounded-3xl xxxs:w-36 sm:w-44 xxs:py-3 sm:py-3" >
                                 20,00,000
-                            </buttom>
+                            </button>
                         </div>
 
                     </div>
@@ -228,22 +230,29 @@
         </div>
     </section>
 
+    <section class="container mx-auto xl:px-0 xxs:px-5 xxxs:px-3 lg:px-12 sm:px-5 md:px-10 mt-36">
+        <div class="font-bold text-white xxs:text-xl sm:text-2xl ">
+            Tip: Invalid Number format ? 
+            <a class="text-purple-600" href="https://www.wikihow.com/Change-Your-Browser%27s-Language" target="_blank">
+                 Update browser language</a>
+        </div>
+    </section>
+
     <!-- Upcoming features -->
-    <section class="container mx-auto xl:px-0 xxs:px-5 xxxs:px-3 lg:px-12 sm:px-5 md:px-10 mt-36 blur-lg">
+    <section class="container mx-auto xl:px-0 xxs:px-5 xxxs:px-3 lg:px-12 sm:px-5 md:px-10 mt-36">
         <div class="grid items-end grid-rows-1 md:gap-30 xl:gap-0 2xl:gap-40 xl:grid-flow-col lg:grid-flow-row">
             <div>
                 <h1
-                    class="font-bold text-purple-600 xxs:text-3xl xxxs:text-center sm:text-6xl sm:text-center md:text-center lg:text-center xl:text-start">
-                    Lorem ipsum
-                    Lorem ?</h1>
+                    class="font-bold text-purple-600 xxs:text-3xl xxxs:text-center sm:text-5xl sm:text-center md:text-center lg:text-center xl:text-start">
+                    Looking for something else ?</h1>
 
                 <div class="font-bold text-white bg-purple-600 xxs:text-3xl sm:text-5xl premium__div">
-                    <span> Try Premium</span>
+                    <span> <a href="#email">Drop mail</a></span>
                 </div>
-                <p class="text-3xl font-bold text-white mt-28">
+                <p class="text-3xl font-bold text-white mt-28 blur-lg">
                     Features
                 </p>
-                <ul class="text-3xl font-bold text-white list-disc">
+                <ul class="text-3xl font-bold text-white list-disc blur-lg">
                     <li class="mt-4 ml-14">lorem ipsum</li>
                     <li class="mt-2 ml-14">lorem ipsum</li>
                     <li class="mt-2 ml-14">lorem ipsum</li>
@@ -260,12 +269,12 @@
     </section>
 
     <!-- Lead Geneeration -->
-    <section class="container mx-auto xxs:px-5 xxxs:px-3 sm:px-5 md:px-10 xl:px-0 lg:px-12 mt-36">
+    <section class="container mx-auto xxs:px-5 xxxs:px-3 sm:px-5 md:px-10 xl:px-0 lg:px-12 mt-24 blur-lg">
         <p class="font-bold text-white xxxs:text-center sm:text-center lg:text-start xxxs:text-4xl sm:text-5xl">
             Coming Soon ...
         </p>
         <div
-            class="flex items-center gap-40 xxxs:flex-wrap sm:justify-center lg:justify-start xxxs:gap-10 xxs:gap-10 sm:gap-20 lg:gap-40 lg:flex-nowrap xxxs:mt-5 xxs:mt-14 sm:mt-36 xxxs:justify-center">
+            class="flex items-center gap-40 xxxs:flex-wrap sm:justify-center lg:justify-start xxxs:gap-10 xxs:gap-10 sm:gap-20 lg:gap-40 lg:flex-nowrap xxxs:mt-5 xxs:mt-14 sm:mt-24 xxxs:justify-center">
             <div class="py-4 abc__website xxxs:text-2xl sm:text-2xl xxxs:px-5 xxs:px-14 sm:px-28">
                 abc@website.com
             </div>
@@ -289,9 +298,9 @@
                 <p class="text-5xl font-bold text-purple-600 xxxs:text-center md:text-center lg:text-start">
                     Connect
                 </p>
-                <p
-                    class="mt-10 font-normal text-white xxxs:text-2xl xxs:text-3xl xxxs:text-center md:text-center lg:text-start blur-lg">
-                    hello@reallygreatsite.com
+                <p id="email"
+                    class="mt-10 font-normal text-white xxxs:text-2xl xxs:text-3xl xxxs:text-center md:text-center lg:text-start">
+                    feedback@finplanner.app
                 </p>
                 <div class="flex gap-10 mt-10 xxxs:justify-center md:justify-center lg:justify-start">
                     <i class="text-4xl text-white fa-brands fa-linkedin "></i>
@@ -310,6 +319,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+    var locale = "en-US";
 
     const ctx2 = document.getElementById('emi_chart');
     const chart_emi = new Chart(ctx2, {
@@ -373,7 +383,7 @@
     chart_sip.update();
 
     $(document).on('input', '#slider_loan_amt', function() {
-        $('#value_loan_amt').html( (parseInt($(this).val()).toLocaleString('en-IN')) );
+        $('#value_loan_amt').html( (parseInt($(this).val()).toLocaleString(locale)) );
         emi_calculator();
         sip_lumpsum_calculator();
     });
@@ -386,7 +396,7 @@
     });
     $(document).on('focusout', '#value_loan_amt', function() {
         loan_amt = parseInt($(this).text().replace(/,/g, ''));
-        $('#value_loan_amt').html(loan_amt.toLocaleString('en-IN'));
+        $('#value_loan_amt').html(loan_amt.toLocaleString(locale));
     });
 
     $(document).on('input', '#slider_tenure', function() {
@@ -421,9 +431,9 @@
         r = $('#value_emi_rate').text().trim() / (12*100);
         n = $('#value_tenure').text().trim() * 12;
         emi = ((p * r * (1 + r) ** n) / ( ((1 + r) ** n) - 1));
-        $('#value_emi_amt').html(parseInt(Math.round(emi * 100) / 100).toLocaleString('en-IN'));
+        $('#value_emi_amt').html(parseInt(Math.round(emi * 100) / 100).toLocaleString(locale));
         interest = emi*n-p;
-        $('#value_interest_amt').html(parseInt(Math.round(interest * 100) / 100).toLocaleString('en-IN'));
+        $('#value_interest_amt').html(parseInt(Math.round(interest * 100) / 100).toLocaleString(locale));
         chart_emi.data.datasets[0].data = [p, interest];
         chart_emi.update();
         $('#section_emi_var').removeClass("blur-sm");
@@ -437,13 +447,13 @@
         emi = $('#value_emi_amt').text().trim();
         emi = parseInt(emi.replace(/,/g, ''));
         value_return = sip * (((1 + r) ** n)-1) * (1+r)/r;
-        $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString('en-IN'));
-        $('#value_outflow_amt').html(parseInt(Math.round((sip + emi) * 100) / 100).toLocaleString('en-IN'));
+        $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString(locale));
+        $('#value_outflow_amt').html(parseInt(Math.round((sip + emi) * 100) / 100).toLocaleString(locale));
         p = sip * n ;
         value_sip_return = value_return-p;
         p = parseInt(Math.round(p * 100) / 100);
         value_sip_return = parseInt(Math.round(value_sip_return * 100) / 100);
-        $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString('en-IN'));
+        $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString(locale));
         chart_sip.data.datasets[0].data = [p, value_sip_return];
         chart_sip.update();
     }
@@ -458,13 +468,13 @@
         emi = parseInt(emi.replace(/,/g, ''));
         sip_coefficient = (((1 + r) ** n)-1) * (1+r)/r
         sip_amt = value_return / sip_coefficient ;
-        $('#value_sip_amt').html(parseInt(Math.round(sip_amt * 100) / 100).toLocaleString('en-IN'));
-        $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 100) / 100).toLocaleString('en-IN'));
+        $('#value_sip_amt').html(parseInt(Math.round(sip_amt * 100) / 100).toLocaleString(locale));
+        $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 100) / 100).toLocaleString(locale));
         p = sip_amt * n ;
         value_sip_return = value_return-p;
         p = parseInt(Math.round(p * 100) / 100);
         value_sip_return = parseInt(Math.round(value_sip_return * 100) / 100);
-        $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString('en-IN'));
+        $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString(locale));
         chart_sip.data.datasets[0].data = [p, value_sip_return];
         chart_sip.update();
     }
@@ -475,7 +485,7 @@
         r = $('#value_sip_rate').text().trim() / 100;
         n = $('#value_tenure').text().trim();
         value_return = p * ((1 + r)**n);
-        $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString('en-IN'));
+        $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString(locale));
         // update chart
         value_sip_return = value_return-p;
         p = parseInt(Math.round(p * 100) / 100);
@@ -492,7 +502,7 @@
         n = $('#value_tenure').text().trim();
         lumpsum_coefficient = (1 + r)**n
         lumpsum_amt = value_return / lumpsum_coefficient ;
-        $('#value_sip_amt').html(parseInt(Math.round(lumpsum_amt * 100) / 100).toLocaleString('en-IN'));
+        $('#value_sip_amt').html(parseInt(Math.round(lumpsum_amt * 100) / 100).toLocaleString(locale));
         // update chart
         p = lumpsum_amt ;
         value_sip_return = value_return-p;
@@ -527,6 +537,7 @@
     $(document).on('input', '#slider_sip_rate', function() {
         $('#value_sip_rate').html( $(this).val());
         sip_lumpsum_calculator();
+        $('#panel_sip').removeClass("blur-sm");
     });
     $(document).on('input', '#value_sip_rate', function() {
         $('#slider_sip_rate').val( $(this).text());
@@ -538,27 +549,86 @@
     });
     $(document).on('focusout', '#value_sip_amt', function() {
         sip_amt = parseInt($(this).text().replace(/,/g, ''));
-        $('#value_sip_amt').html(sip_amt.toLocaleString('en-IN'));
+        $('#value_sip_amt').html(sip_amt.toLocaleString(locale));
     });
 
     $(document).on('change', '#checkbox_lumpsum', function() {
         sip_lumpsum_calculator();
     });
 
-    $( document ).ready(function() {
-        // emi_calculator();
-        sip_lumpsum_calculator();
-    });
 
-    $(document).on('mouseover', '#panel_sip', function(){
+    $(document).on('mouseover', '.hover-unblur', function(){
         $(this).removeClass("blur-sm");
     });
 
-    // $(document).on('mouseover', '#section_emi_var', function(){
-    //     $('#section_emi_var').removeClass("blur-sm");
-    // });
+
+    function setCursor(elem, pos) {
+        // var tag = document.getElementById("value_loan_amt");
+        var tag = elem;
+        // Creates range object
+        var setpos = document.createRange();
+            
+        // Creates object for selection
+        var set = window.getSelection();
+            
+        // Set start position of range
+        setpos.setStart(tag.childNodes[0], pos);
+            
+        // Collapse range within its boundary points
+        // Returns boolean
+        setpos.collapse(true);
+            
+        // Remove all ranges set
+        set.removeAllRanges();
+            
+        // Add range with respect to range object.
+        set.addRange(setpos);
+            
+        // Set cursor on focus
+        tag.focus();
+    }
 
     
+    $(".editable").on('mouseover',function(e){
+        setCursor(this, 0);
+     });
+
+
+    $(".editable").on('keyup',function(e){
+        sel = window.getSelection();
+        if($(sel.anchorNode).is($(this))){
+            pos = '0'
+        }else{
+            pos = sel.anchorOffset;
+        }
+        // console.log(pos);
+        loan_amt = parseInt($(this).text().replace(/,/g, ''));
+        $(this).html(loan_amt.toLocaleString(locale));
+        setCursor(this, pos);
+     });
+
+    
+    //  function getCountry(){
+    //     $.get("https://ipinfo.io", function(response) {
+    //         country = response.country;
+    //     }, "jsonp");
+    //     console.log(window.locale);
+    //  }
+
+     function getLang() {
+        if (navigator.languages != undefined) 
+            return navigator.languages[0]; 
+        return navigator.language;
+     }
+
+    $( document ).ready(function() {
+        emi_calculator();
+        $('#section_emi_var').addClass("blur-sm");
+        sip_lumpsum_calculator();
+        locale = getLang();
+        console.log(locale);
+
+    });
 
 </script>
 </html>
