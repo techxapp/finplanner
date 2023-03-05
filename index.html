@@ -237,6 +237,14 @@
                  Update browser language</a>
         </div>
     </section>
+    <section class="container mx-auto xl:px-0 xxs:px-5 xxxs:px-3 lg:px-12 sm:px-5 md:px-10 mt-36">
+
+        <!-- ==============  Loan Amortisation Table ==================== -->
+        <h2 class="font-bold text-purple-600 underline xxs:text-xl sm:text-2xl mt-14">Loan Amortisation Table</h3>
+        <div id="div_amortisation" class="text-white mt-10 sm:text-lg">
+        </div>
+
+    </section>
 
     <!-- Upcoming features -->
     <section class="container mx-auto xl:px-0 xxs:px-5 xxxs:px-3 lg:px-12 sm:px-5 md:px-10 mt-36">
@@ -437,6 +445,7 @@
         chart_emi.data.datasets[0].data = [p, interest];
         chart_emi.update();
         $('#section_emi_var').removeClass("blur-sm");
+        getAmortisationValues();
     }
 
     function sip_return_calculator(){
@@ -621,13 +630,153 @@
         return navigator.language;
      }
 
+
+    //  Loan amortisation table
+
+
+    function getAmortisationValues()
+    {
+        //button click gets values from inputs
+        // var balance = parseFloat(document.getElementById("principal").value);
+        // var interestRate = 
+        //     parseFloat(document.getElementById("interest").value/100.0);
+        // var terms = parseInt(document.getElementById("terms").value);
+
+        balance = $('#value_loan_amt').text().trim();
+        balance = parseInt(balance.replace(/,/g, ''));
+        interestRate = $('#value_emi_rate').text().trim() / 100;
+        terms = $('#value_tenure').text().trim() * 12;
+        
+        //set the div string
+        var div = document.getElementById("div_amortisation");
+        
+        //in case of a re-calc, clear out the div!
+        div.innerHTML = "";
+        
+        //validate inputs - display error if invalid, otherwise, display table
+        var balVal = validateInputs(balance);
+        var intrVal = validateInputs(interestRate);
+
+        if (balVal && intrVal)
+        {
+            //Returns div string if inputs are valid
+            div.innerHTML += amort(balance, interestRate, terms);
+        }
+        else
+        {
+            //returns error if inputs are invalid
+            div.innerHTML += "Please Check your inputs and retry - invalid values.";
+        }
+    }
+
+    /**
+     * Amort function:
+     * Calculates the necessary elements of the loan using the supplied user input
+     * and then displays each months updated amortization schedule on the page
+    */
+    function amort(balance, interestRate, terms)
+    {
+        //Calculate the per month interest rate
+        var monthlyRate = interestRate/12;
+        
+        //Calculate the payment
+        var payment = balance * (monthlyRate/(1-Math.pow(
+            1+monthlyRate, -terms)));
+            
+        //begin building the return string for the display of the amort table
+        var result = "<span class='font-bold'>Loan amount: </span>" + parseInt(balance).toLocaleString(locale) +  "<br />" + 
+            "<span class='font-bold'>Interest rate:  </span>" + (interestRate*100).toFixed(2) +  "%<br />" +
+            "<span class='font-bold'>Number of months: </span>" + terms + "<br />" +
+            "<span class='font-bold'>Monthly payment: </span>" + parseInt(payment).toLocaleString(locale) + "<br />" +
+            "<span class='font-bold'>Total paid: </span>" + parseInt(payment * terms).toLocaleString(locale) + "<br /><br />";
+            
+        //add header row for table to return string
+        result += "<table class='xxs:text-sm sm:text-lg mt-10 border-spacing-2 border-solid border-4 table-auto'>" +
+            "<tr class='border-solid border-4'><th>Year #</th><th>Balance</th>" + 
+            "<th>Interest</th><th>Principal</th>";
+        
+        /**
+         * Loop that calculates the monthly Loan amortization amounts then adds 
+         * them to the return string 
+         */
+         var interest = 0;
+         var monthlyPrincipal = 0;
+         var annualPrincipal = 0;
+         var annualInterest = 0;
+
+        for (var count = 0; count < terms; ++count)
+        {
+
+            //calc the in-loop interest amount and display
+            interest = balance * monthlyRate ;
+            annualInterest += interest;
+
+            monthlyPrincipal = payment - interest;
+            annualPrincipal = annualPrincipal + monthlyPrincipal;
+
+            //update the balance for each loop iteration
+            balance = balance - monthlyPrincipal;	
+
+            if (count % 12 == 0 && count !=0){
+
+                //calc the in-loop monthly principal and display
+                // annualPrincipal = payment - interest;
+
+                //start a new table row on each loop iteration
+                result += "<tr align=center class='ml-4 border-4'>";
+                
+                //display the month number in col 1 using the loop count variable
+                result += "<td>" + (count / 12) + "</td>";
+                
+                //code for displaying in loop balance
+                result += "<td class='lg:px-12 sm:px-8 xs:px-4 py-4'> " + parseInt(balance).toLocaleString(locale) + "</td>";
+                
+
+                result += "<td class='lg:px-12 sm:px-8 xs:px-4 py-4'> " + parseInt(annualInterest).toLocaleString(locale) + "</td>";
+                
+
+                result += "<td class='lg:px-12 sm:px-8 xs:px-4 py-4'> " + parseInt(annualPrincipal).toLocaleString(locale) + "</td>";
+                
+                //end the table row on each iteration of the loop	
+                result += "</tr>";
+
+
+                //in-loop interest amount holder
+                annualInterest = 0;
+                
+                //in-loop monthly principal amount holder
+                annualPrincipal = 0;
+            }
+
+
+        }
+        
+        //Final piece added to return string before returning it - closes the table
+        result += "</table>";
+        
+        //returns the concatenated string to the page
+        return result;
+    }
+
+    function validateInputs(value)
+    {
+        //some code here to validate inputs
+        if ((value == null) || (value == ""))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     $( document ).ready(function() {
+        locale = getLang();
+        console.log(locale);
         emi_calculator();
         $('#section_emi_var').addClass("blur-sm");
         sip_lumpsum_calculator();
-        locale = getLang();
-        console.log(locale);
-
     });
 
 </script>
