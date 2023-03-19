@@ -67,6 +67,47 @@ $(document).on('input', '#slider_loan_amt', function() {
     sip_lumpsum_calculator();
 });
 
+$(document).on('mouseup keyup', '#slider_loan_amt', function() {
+    max = parseInt($(this).attr("max"));
+    min = parseInt($(this).attr("min"));
+    step = $(this).attr("step");
+    if ($(this).val() == max){
+        if (max<500000){
+            $(this).attr("max", max+100000);
+        }
+        else if (max==500000){
+            console.log(max);
+            $(this).attr("max", 5000000);
+            $(this).attr("min", 500000);
+            step = 25000;
+            $(this).attr("step", step);
+        }
+        else{
+            console.log(max);
+            $(this).attr("max", max*2);
+            $(this).attr("min", $(this).attr("max")/2);
+            $(this).attr("step", step*2);
+        }
+
+    }
+    else if ($(this).val() == min){
+        if(min>500000){
+            $(this).attr("min", parseInt(min/2));
+            $(this).attr("max", $(this).attr("min")*2);
+            step = parseInt(step/2);
+            $(this).attr("step", step);
+        }
+        else if (min>100000){
+            $(this).attr("min", min-100000);
+            $(this).attr("max", $(this).attr("min")*2);
+            step = 5000;
+            $(this).attr("step", step);
+        }
+// 2.5,2,2
+    }
+});
+
+
 $(document).on('input', '#value_loan_amt', function() {
     loan_amt = parseInt($(this).text().replace(/,/g, ''));
     $('#slider_loan_amt').val(loan_amt);
@@ -115,7 +156,7 @@ function emi_calculator(){
     $('#value_interest_amt').html(parseInt(Math.round(interest * 100) / 100).toLocaleString(locale));
     chart_emi.data.datasets[0].data = [p, interest];
     chart_emi.update();
-    $('#section_emi_var').removeClass("blur-sm");
+    $('#section_emi_var').removeClass("lg:blur-sm");
     getAmortisationValues();
 }
 
@@ -217,7 +258,7 @@ function sip_lumpsum_return_calculator(){
 $(document).on('input', '#slider_sip_rate', function() {
     $('#value_sip_rate').html( $(this).val());
     sip_lumpsum_calculator();
-    $('#panel_sip').removeClass("blur-sm");
+    $('#panel_sip').removeClass("lg:blur-sm");
 });
 $(document).on('input', '#value_sip_rate', function() {
     $('#slider_sip_rate').val( $(this).text());
@@ -238,7 +279,7 @@ $(document).on('change', '#checkbox_lumpsum', function() {
 
 
 $(document).on('mouseover', '.hover-unblur', function(){
-    $(this).removeClass("blur-sm");
+    $(this).removeClass("lg:blur-sm");
 });
 
 
@@ -363,7 +404,7 @@ function amort(balance, interestRate, terms)
         
     //add header row for table to return string
     result += "<table class='xxs:text-md sm:text-lg mt-10 border-spacing-2 border-solid border-4 table-auto'>" +
-        "<tr class='border-solid border-4'><th>Year #</th><th>Balance</th>" + 
+        "<tr class='border-solid border-4'><th> Year </th><th>Balance</th>" + 
         "<th>Interest</th><th>Principal</th>";
     
     /**
@@ -397,7 +438,7 @@ function amort(balance, interestRate, terms)
             result += "<tr align=center class='ml-4 border-4'>";
             
             //display the month number in col 1 using the loop count variable
-            result += "<td>" + (count / 12) + "</td>";
+            result += "<td class='lg:px-12 sm:px-8 xs:px-3 xxs:pl-2 xxxs:pl-2 py-4'>" + (count / 12) + "</td>";
             
             //code for displaying in loop balance
             result += "<td class='lg:px-12 sm:px-8 xs:px-4 xxs:px-4 xxxs:px-3 py-4'> " + parseInt(balance).toLocaleString(locale) + "</td>";
@@ -446,6 +487,6 @@ $( document ).ready(function() {
     locale = getLang();
     console.log(locale);
     emi_calculator();
-    $('#section_emi_var').addClass("blur-sm");
+    $('#section_emi_var').addClass("lg:blur-sm");
     sip_lumpsum_calculator();
 });

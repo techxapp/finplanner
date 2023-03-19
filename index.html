@@ -92,11 +92,12 @@
                     <!-- ===========       Loan Amount     ================ -->
                     <div class="flex items-center justify-between w-full mt-14">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Loan Amount</h1>
-                        <button id="value_loan_amt" class="editable xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-3" contenteditable="true">
+                        <button id="value_loan_amt" class="editable xxxs:text-xl xxs:text-xl sm:text-2xl font-bold text-center
+                         text-white bg-purple-500 xxxs:w-36 sm:w-44 rounded-3xl xxs:py-3" contenteditable="true">
                             25,00,000
                             </button>
                     </div>
-                    <input id="slider_loan_amt" type="range" value="2500000" min="0" max="20000000" step="50000"
+                    <input id="slider_loan_amt" type="range" value="2500000" min="500000" max="5000000" step="50000"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
 
                     <!-- ===========       Tenure        ================ -->
@@ -107,11 +108,10 @@
                             <span id="value_tenure" contenteditable="true">25</span> &nbsp;years
                             </button>
                     </div>
-
-                    <!-- ===========       Interest Rate     ================ -->
                     <input id="slider_tenure" type="range" value="25" min="0" max="30" step="1"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
 
+                    <!-- ===========       Interest Rate     ================ -->
                     <div class="flex items-center justify-between w-full mt-8">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-2xl">Interest Rate</h1>
                         <button
@@ -150,7 +150,7 @@
             </div>
 
             <!-- ==============   SIP PANEL   =========== -->
-            <div id="panel_sip" class="flex justify-center hover-unblur blur-sm">
+            <div id="panel_sip" class="flex justify-center hover-unblur lg:blur-sm">
                 <div class="w-full">
                     <h1 class="font-bold text-white xxxs:text-3xl xxs:text-4xl sm:text-5xl">
                         SIP <span class="text-purple-600">Calculator</span>
