@@ -181,8 +181,8 @@ function sip_return_calculator(){
 
 function sip_calculator(){
     value_interest_amt = $('#value_interest_amt').text().trim()
-    $('#value_sip_return_amt').html(value_interest_amt);
     value_return =  parseInt(value_interest_amt.replace(/,/g, ''));
+    $('#value_sip_return_amt').html(parseInt(value_return).toLocaleString(locale));
     r = $('#value_sip_rate').text().trim() / (12*100);
     n = $('#value_tenure').text().trim() * 12;
     emi = $('#value_emi_amt').text().trim();
@@ -278,6 +278,34 @@ $(document).on('change', '#checkbox_lumpsum', function() {
 });
 
 
+
+// ###########     Update Number System    #############
+
+$(document).on('change', '#checkbox_number_system', function() {
+    toggle_number_system();
+});
+
+function toggle_number_system(){
+    if (locale == "en-US"){
+        locale = "en-IN";
+    }
+    else{
+        locale = "en-US";
+    }
+    update_locale();
+}
+
+function update_locale(){
+    sip_lumpsum_calculator();
+    emi_calculator();
+    loan_amt = parseInt($('#value_loan_amt').text().replace(/,/g, ''));
+    $('#value_loan_amt').html(loan_amt.toLocaleString(locale));
+}
+
+
+
+// ###########     Update Blur    #############
+
 $(document).on('mouseover', '.hover-unblur', function(){
     $(this).removeClass("lg:blur-sm");
 });
@@ -328,19 +356,21 @@ $(".editable").on('keyup',function(e){
     setCursor(this, pos);
     });
 
+    
 
 //  function getCountry(){
 //     $.get("https://ipinfo.io", function(response) {
 //         country = response.country;
+//         console.log(country);
 //     }, "jsonp");
-//     console.log(window.locale);
+    
 //  }
 
-    function getLang() {
+function getLang() {
     if (navigator.languages != undefined) 
         return navigator.languages[0]; 
     return navigator.language;
-    }
+}
 
 
 //  Loan amortisation table
@@ -486,6 +516,7 @@ function validateInputs(value)
 $( document ).ready(function() {
     locale = getLang();
     console.log(locale);
+    // country = getCountry();
     emi_calculator();
     $('#section_emi_var').addClass("lg:blur-sm");
     sip_lumpsum_calculator();
