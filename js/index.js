@@ -67,7 +67,7 @@ $(document).on('input', '#slider_loan_amt', function() {
     sip_lumpsum_calculator();
 });
 
-$(document).on('mouseup keyup', '#slider_loan_amt', function() {
+$(document).on('mouseup keyup touchend', '#slider_loan_amt', function() {
     max = parseInt($(this).attr("max"));
     min = parseInt($(this).attr("min"));
     step = $(this).attr("step");
