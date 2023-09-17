@@ -8,6 +8,10 @@ body{
 .logo{
     width: 50px;
 }
+/* .editable{
+    padding: 5px;
+    border-radius: 20px;
+} */
 .button__gradient{
     background: linear-gradient(90deg, rgba(152,64,248,1) 35%, rgba(250,60,103,1) 100%);
     padding: 20px;
@@ -37,7 +41,7 @@ body{
 }
 .premium__div{
     width: max-content;
-    padding: 12px 50px;
+    padding: 8px 32px;
     display: flex;
     margin: auto;
     margin-top: 40px !important;
