@@ -62,7 +62,7 @@
 
                 <span class="text-right mx-4">
                     <a href="https://blogs.finplanner.app/">
-                        <p class="text-xl text-white"> |  Blog </p></a>
+                        <p class="text-xl text-white font-bold"> |  Blog </p></a>
                 </span>
             </div>
 
@@ -173,26 +173,32 @@
                     <input id="slider_sip_rate" type="range" value="12" step="1.0" max="30"
                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
 
+                    <!-- ===========      SIP Tenure        ================ -->
+                    <div class="flex items-center justify-between w-full mt-6">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-base">Tenure</h1>
+                        <button
+                            class="xxxs:text-l xxs:text-base sm:text-base font-bold text-center text-white bg-purple-500 rounded-3xl px-5 sm:py-1">
+                            <span id="value_sip_tenure" contenteditable="true">25</span> &nbsp;years
+                            </button>
+                    </div>
+                    <input id="slider_sip_tenure" type="range" value="25" min="0" max="30" step="1"
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray mt-7 dark:bg-gray-700">
+
                     <!-- ===========      Lumpsum Selector     ================ -->
                     <div
                         class="flex items-center w-full xxxs:justify-center sm:justify-between mt-8 xxs:gap-10 sm:gap-0 sm:flex-nowrap">
-                        <h1 class="font-bold text-white xxs:text-lg sm:text-base mr-10">SIP</h1>
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-base mr-10">Lumpsum</h1>
+
                         <label class="relative inline-flex items-center cursor-pointer">
                             <!-- ===========      Lumpsum Checkbox     ================ -->
-                            <input type="checkbox" id="checkbox_lumpsum" class="sr-only peer">
-                            <div
-                                class="w-16 h-8 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300
-                                 dark:peer-focus:ring-black-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full
-                                  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
-                                  after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all
-                                   dark:border-gray-600 peer-checked:bg-dark-600">
-                            </div>
+                            <input type="checkbox" id="checkbox_lumpsum" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600"></div>
                         </label>
-                        <h1 class="font-bold text-white xxs:text-lg sm:text-base ml-8">Lumpsum</h1>
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-base ml-8">SIP</h1>
                     </div>
 
                     <!-- ===========      Sip Amount     ================ -->
-                    <div class="flex items-center justify-between w-full mt-8">
+                    <div class="flex items-center justify-between w-full mt-6">
                         <h1 id="text_sip_amt" class="font-bold text-white xxs:text-lg sm:text-base">Sip Amount</h1>
                         <button id="value_sip_amt" contenteditable="true"
                             class="editable xxxs:text-l xxs:text-base sm:text-base font-bold text-center text-white bg-purple-500 rounded-3xl px-5 sm:py-1">
@@ -200,15 +206,7 @@
                             </button>
                     </div>
 
-                    <div id="div_outflow" class="flex items-center justify-between w-full mt-8">
-                        <h1 class="font-bold text-white xxs:text-lg sm:text-base">Total Outflow</h1>
-                        <button id="value_outflow_amt"
-                            class="xxxs:text-l xxs:text-base sm:text-base font-bold text-center text-white bg-purple-500 rounded-3xl px-5 sm:py-1">
-                            18,147
-                            </button>
-                    </div>
-
-                    <div id="div_sip_return_amt" class="flex items-center justify-between w-full mt-8 mb-36">
+                    <div id="div_sip_return_amt" class="flex items-center justify-between w-full mt-6">
                         <h1 class="font-bold text-white xxs:text-lg sm:text-base">Total Value</h1>
                         <button id="value_sip_return_amt"
                             class="xxxs:text-l xxs:text-base sm:text-base font-bold text-center text-white bg-purple-500 rounded-3xl px-5 sm:py-1">
@@ -216,20 +214,27 @@
                             </button>
                     </div>
 
-                    <div>
+                    <div id="div_outflow" class="flex items-center justify-between w-full mt-6">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-base">Total Outflow</h1>
+                        <button id="value_outflow_amt"
+                            class="xxxs:text-l xxs:text-base sm:text-base font-bold text-center text-white bg-purple-500 rounded-3xl px-5 sm:py-1">
+                            18,147
+                            </button>
+                    </div>
 
+
+                    <!-- Returns -->
+                    <!-- <div class="flex items-center justify-between w-full mt-8">
+                        <h1 class="font-bold text-white xxs:text-lg sm:text-base">Returns</h1>
+                        <button id="value_sip_return"
+                            class="xxxs:text-l xxs:text-base sm:text-base font-bold text-center text-white bg-purple-500 rounded-3xl px-5 sm:py-1" >
+                            20,00,000
+                        </button>
+                    </div> -->
+
+                    <div id="div_sip_chart" class="mt-10">
                         <!-- chart -->
                         <canvas id="sip_chart"></canvas>
-
-                        <!-- Returns -->
-                        <div class="hidden flex items-center justify-between w-full mt-12">
-                            <h1 class="font-bold text-white xxs:text-lg sm:text-base">Returns</h1>
-                            <button id="value_sip_return"
-                                class="xxxs:text-l xxs:text-base sm:text-base font-bold text-center text-white bg-purple-500 rounded-3xl px-5 sm:py-1" >
-                                20,00,000
-                            </button>
-                        </div>
-
                     </div>
 
                 </div>

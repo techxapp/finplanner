@@ -121,6 +121,8 @@ $(document).on('focusout', '#value_loan_amt', function() {
 
 $(document).on('input', '#slider_tenure', function() {
     $('#value_tenure').html( $(this).val() );
+    $('#value_sip_tenure').html( $(this).val() );
+    $('#slider_sip_tenure').val($(this).val());
     emi_calculator();
     sip_lumpsum_calculator();
 });
@@ -128,7 +130,23 @@ $(document).on('input', '#value_tenure', function() {
     n = $('#value_tenure').text().trim();
     console.log(n);
     $('#slider_tenure').val(n);
+    $('#value_sip_tenure').html( $(this).val() );
+    $('#slider_sip_tenure').val(n);
     emi_calculator();
+    sip_lumpsum_calculator();
+});
+
+
+$(document).on('input', '#slider_sip_tenure', function() {
+    $('#value_sip_tenure').html( $(this).val() );
+    // emi_calculator();
+    sip_lumpsum_calculator();
+});
+$(document).on('input', '#value_sip_tenure', function() {
+    n = $('#value_sip_tenure').text().trim();
+    console.log(n);
+    $('#slider_sip_tenure').val(n);
+    // emi_calculator();
     sip_lumpsum_calculator();
 });
 
@@ -164,7 +182,7 @@ function sip_return_calculator(){
     sip = $('#value_sip_amt').text().trim();
     sip = parseInt(sip.replace(/,/g, ''));
     r = $('#value_sip_rate').text().trim() / (12*100);
-    n = $('#value_tenure').text().trim() * 12;
+    n = $('#value_sip_tenure').text().trim() * 12;
     emi = $('#value_emi_amt').text().trim();
     emi = parseInt(emi.replace(/,/g, ''));
     value_return = sip * (((1 + r) ** n)-1) * (1+r)/r;
@@ -181,20 +199,29 @@ function sip_return_calculator(){
 
 function sip_calculator(){
     value_interest_amt = $('#value_interest_amt').text().trim()
-    value_return =  parseInt(value_interest_amt.replace(/,/g, ''));
-    $('#value_sip_return_amt').html(parseInt(value_return).toLocaleString(locale));
+    value_sip_return =  parseInt(value_interest_amt.replace(/,/g, ''));
+    // $('#value_sip_return_amt').html(parseInt(value_return).toLocaleString(locale));
     r = $('#value_sip_rate').text().trim() / (12*100);
-    n = $('#value_tenure').text().trim() * 12;
+    n = $('#value_sip_tenure').text().trim() * 12;
     emi = $('#value_emi_amt').text().trim();
     emi = parseInt(emi.replace(/,/g, ''));
     sip_coefficient = (((1 + r) ** n)-1) * (1+r)/r
+
+    // p = (value_return / sip_coefficient) * n ;
+    // value_sip_return = value_return * [1 - (1 / sip_coefficient) * n] ;
+    value_return = value_sip_return / (1 - (1 / sip_coefficient) * n)
+    $('#value_sip_return_amt').html(parseInt(value_return).toLocaleString(locale));
+
+
     sip_amt = value_return / sip_coefficient ;
-    $('#value_sip_amt').html(parseInt(Math.round(sip_amt * 100) / 100).toLocaleString(locale));
-    $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 100) / 100).toLocaleString(locale));
+
+
+    $('#value_sip_amt').html(parseInt(Math.round(sip_amt * 10) / 10).toLocaleString(locale));
+    $('#value_outflow_amt').html(parseInt(Math.round((sip_amt + emi) * 10) / 10).toLocaleString(locale));
+    // value_sip_return = value_return-p;
     p = sip_amt * n ;
-    value_sip_return = value_return-p;
-    p = parseInt(Math.round(p * 100) / 100);
-    value_sip_return = parseInt(Math.round(value_sip_return * 100) / 100);
+    p = parseInt(Math.round(p * 10) / 10);
+    value_sip_return = parseInt(Math.round(value_sip_return * 10) / 10);
     $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString(locale));
     chart_sip.data.datasets[0].data = [p, value_sip_return];
     chart_sip.update();
@@ -204,43 +231,71 @@ function lumpsum_return_calculator(){
     p = $('#value_sip_amt').text().trim();
     p = parseInt(p.replace(/,/g, ''));
     r = $('#value_sip_rate').text().trim() / 100;
-    n = $('#value_tenure').text().trim();
-    value_return = p * ((1 + r)**n);
-    $('#value_sip_return_amt').html(parseInt(Math.round(value_return * 100) / 100).toLocaleString(locale));
+    n = $('#value_sip_tenure').text().trim();
+    value_sip_return_amt = p * ((1 + r)**n);
+    $('#value_sip_return_amt').html(parseInt(Math.round(value_sip_return_amt * 10) / 10).toLocaleString(locale));
+
     // update chart
-    value_sip_return = value_return-p;
-    p = parseInt(Math.round(p * 100) / 100);
-    value_sip_return = parseInt(Math.round(value_sip_return * 100) / 100);
+    value_sip_return = value_sip_return_amt - p;
+    p = parseInt(Math.round(p * 10) / 10);
+    $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString(locale));
+    value_sip_return = parseInt(Math.round(value_sip_return * 10) / 10);
     chart_sip.data.datasets[0].data = [p, value_sip_return];
     chart_sip.update();
 }
 
 function lumpsum_calculator(){
     value_interest_amt = $('#value_interest_amt').text().trim()
-    $('#value_sip_return_amt').html(value_interest_amt);
-    value_return =  parseInt(value_interest_amt.replace(/,/g, ''));
+    value_sip_return =  parseInt(value_interest_amt.replace(/,/g, ''));
+    $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString(locale));
+
     r = $('#value_sip_rate').text().trim() / 100;
-    n = $('#value_tenure').text().trim();
+    n = $('#value_sip_tenure').text().trim();
     lumpsum_coefficient = (1 + r)**n
-    lumpsum_amt = value_return / lumpsum_coefficient ;
-    $('#value_sip_amt').html(parseInt(Math.round(lumpsum_amt * 100) / 100).toLocaleString(locale));
+
+    // value_sip_return + lumpsum_amt = value_return;
+
+    lumpsum_amt = (value_sip_return / lumpsum_coefficient ) / (1 - 1 / lumpsum_coefficient) ;
+
+    $('#value_sip_amt').html(parseInt(Math.round(lumpsum_amt * 10) / 10).toLocaleString(locale));
     // update chart
     p = lumpsum_amt ;
-    value_sip_return = value_return-p;
+    value_sip_return_amt = value_sip_return + p;
+    // $('#value_sip_return_amt').html(value_sip_return_amt);
+    $('#value_sip_return_amt').html(parseInt(Math.round(value_sip_return_amt * 10) / 10).toLocaleString(locale));
+    // $('#value_sip_return').html(parseInt(value_sip_return).toLocaleString(locale));
+
+    
     chart_sip.data.datasets[0].data = [p, value_sip_return];
     chart_sip.update();
 }
 
+function set_margin_sip_chart(className){
+    if ($( "#div_sip_chart" ).hasClass("mt-10")) {
+        $( "#div_sip_chart" ).removeClass('mt-10');
+    }
+    if ($( "#div_sip_chart" ).hasClass("mt-14")) {
+        $( "#div_sip_chart" ).removeClass('mt-14');
+    }
 
+    $( "#div_sip_chart" ).addClass(className); 
+}
+
+
+/**
+ * A function that calculates the SIP or Lumpsum amount based on the checkbox input.
+ *
+ * @return {undefined} Does not return a value.
+ */
 function sip_lumpsum_calculator(){
-    if ( $('#checkbox_lumpsum').is(":checked") == true ) {
+    if ( $('#checkbox_lumpsum').is(":checked") == false ) {
         $('#text_sip_amt').html("Lumpsum");
         lumpsum_calculator();
-        $('#div_outflow').hide();
+        $('#div_outflow').css('visibility','hidden');
     } else {
         $('#text_sip_amt').html("Sip Amount");
         sip_calculator();
-        $('#div_outflow').show();
+        $('#div_outflow').css('visibility','visible');
     }
 }
 
@@ -446,20 +501,31 @@ function amort(balance, interestRate, terms)
         var annualPrincipal = 0;
         var annualInterest = 0;
 
-    for (var count = 0; count < terms; ++count)
+    for (var count = 0; count <= terms; ++count)
     {
+        if(count != terms){
+            //calc the in-loop interest amount and display
+            interest = balance * monthlyRate ;
+            annualInterest += interest;
 
-        //calc the in-loop interest amount and display
-        interest = balance * monthlyRate ;
-        annualInterest += interest;
+            monthlyPrincipal = payment - interest;
+            annualPrincipal = annualPrincipal + monthlyPrincipal;
 
-        monthlyPrincipal = payment - interest;
-        annualPrincipal = annualPrincipal + monthlyPrincipal;
+            //update the balance for each loop iteration
+            balance = balance - monthlyPrincipal;	
+        } else {
+            //calc the in-loop interest amount and display
+            interest = balance * monthlyRate ;
+            annualInterest += interest;
 
-        //update the balance for each loop iteration
-        balance = balance - monthlyPrincipal;	
+            monthlyPrincipal = payment - interest;
+            annualPrincipal = annualPrincipal + monthlyPrincipal;
 
-        if (count % 12 == 0 && count !=0){
+            //update the balance for each loop iteration
+            balance = balance - monthlyPrincipal;
+        }
+
+        if ((count % 12 == 0 && count !=0)) {
 
             //calc the in-loop monthly principal and display
             // annualPrincipal = payment - interest;
