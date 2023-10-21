@@ -7,38 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIP and EMI Calculator | FinPlanner</title>
     <meta name="description" content="This calculator helps plan SIP / Lumpsum investment to make home loan interest free">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="dist/output.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script>
-        tailwind.config = {
-            theme: {
-                screens: {
-                    'xxxs': '320px',
-                    'xxs': '375px',
-                    'xs': '425px',
-                    'sm': '576px',
-                    // => @media (min-width: 576px) { ... }
-
-                    'md': '768px',
-                    // => @media (min-width: 960px) { ... }
-
-                    'lg': '1024px',
-                    'xl': '1280px',
-                    '2xl': '1536px',
-                    // => @media (min-width: 1440px) { ... }
-                },
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
-
-        }
-    </script>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -58,11 +32,11 @@
         <header class="container mx-auto xxxs:px-3 xxs:px-5 lg:px-12 xl:px-0 md:px-10 sm:px-5">
             <div class="flex items-center gap-2 mt-8 ">
                 <img class="animate-[spin_2s_linear_infinite] logo" src="assets/img/logo.svg" alt="">
-                <p class="text-2xl font-bold text-white">FinPlanner.app</p>
+                <p class="text-xl sm:text-2xl font-bold text-white">FinPlanner.app</p>
 
-                <span class="text-right mx-4">
+                <span class="text-right mx-2 xxs:mx-1">
                     <a href="https://blogs.finplanner.app/">
-                        <p class="text-xl text-white font-bold"> |  Blog </p></a>
+                        <p class="text-xl sm:text-lg text-white font-bold"> |  <span class="mx-2 xxs:mx-1">Blog</span> </p></a>
                 </span>
             </div>
 
@@ -246,11 +220,16 @@
         <div class="font-bold text-white xxs:text-xl sm:text-xl ">
             Tip: Incorrect Number format ? 
             <a class="text-purple-600" href="https://www.wikihow.com/Change-Your-Browser%27s-Language" target="_blank">
-                 Update browser language</a>
+                 Update browser language or switch </a>
 
-            <!-- ===========      Number System Selector     ================ -->
+                <!-- ===========      Number System Selector     ================ -->
                 <label class="relative inline-flex items-center cursor-pointer">
-                    <!-- ===========      Number System Checkbox     ================ -->
+                    <!-- ===========      Lumpsum Checkbox     ================ -->
+                    <input type="checkbox" id="checkbox_number_system" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600"></div>
+                </label>
+                <!-- <label class="relative inline-flex items-center cursor-pointer">
+                     ===========      Number System Checkbox     ================ 
                     <input type="checkbox" id="checkbox_number_system" class="sr-only peer">
                     <div
                         class="ml-4 w-16 h-8 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300
@@ -259,7 +238,7 @@
                             after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:ml-4 after:transition-all
                             dark:border-gray-600 peer-checked:bg-dark-600">
                     </div>
-                </label>
+                </label> -->
         </div>
 
     </section>
